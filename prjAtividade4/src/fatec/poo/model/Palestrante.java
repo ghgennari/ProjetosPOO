@@ -22,19 +22,18 @@ public class Palestrante extends Pessoa {
     }
 
     public double getTaxaCobranca() {
-        return taxaCobranca;
+        return taxaCobranca*100;
     }
 
     public void setTaxaCobranca(double taxaCobranca) {
-        this.taxaCobranca = taxaCobranca;
+        this.taxaCobranca = taxaCobranca/100;
     }
     
     public double calcTotalReceberPalestras(){
         double total = 0;
         for(int i = 0; i < numFunc ; i++){
-            total = total + palestras[i].calcTotalFaturado();
+            total += palestras[i].calcTotalFaturado();
         }
-        total =total+ total * (taxaCobranca/100);
         return total;
     }
     

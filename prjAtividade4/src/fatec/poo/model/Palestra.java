@@ -40,10 +40,10 @@ public class Palestra {
             double valorPago = valor;
             switch (participantes[i].getTipo()) {
                 case 'E':
-                    valorPago = valorPago - valor * 0.15;
+                    valorPago -= valor * 0.85;
                     break;
                 case 'I':
-                    valorPago = valorPago - valor * 0.20;
+                    valorPago -= valor * 0.80;
                     break;
                 case 'C':
                     valorPago = valor;
