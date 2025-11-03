@@ -8,6 +8,7 @@ public class PedidoCompra {
     private int numero;
     private String dataPedido;
     private double valor;
+    private Pessoa pessoa;
 
     public PedidoCompra(int numero) {
         this.numero = numero;
@@ -28,6 +29,15 @@ public class PedidoCompra {
     public void setValor(double valor) {
         this.valor = valor;
     }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+    
     
     
     

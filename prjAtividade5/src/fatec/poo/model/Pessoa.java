@@ -46,6 +46,8 @@ public abstract class Pessoa {
     
     public void addPedido(PedidoCompra p){
         pedidos.add(p);
+        p.setPessoa(this);
+        
     }
 
     public ArrayList<PedidoCompra> getPedidos() {
