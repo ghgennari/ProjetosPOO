@@ -43,7 +43,7 @@ public class Paciente extends Pessoa {
     
     public void addConsulta(Consulta c){
         consultas.add(c);
-        c.setPaciente(this);
+//        c.setPaciente(this);
     }
     
     public double calcIMC(){
