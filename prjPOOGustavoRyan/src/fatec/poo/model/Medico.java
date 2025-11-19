@@ -16,7 +16,7 @@ public class Medico extends Pessoa {
         super(cpf, nome);
         this.crm = crm;
         this.especialidade = especialidade;
-        consultas = new ArrayList<Consulta>();
+        consultas = new ArrayList<>();
     }
 
     public String getCrm() {

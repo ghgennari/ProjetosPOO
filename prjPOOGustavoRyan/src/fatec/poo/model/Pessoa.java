@@ -3,7 +3,7 @@ package fatec.poo.model;
 
 /**
  *
- * @author Gustavo
+ * @author Ryan
  */
 public class Pessoa {
     private String cpf;

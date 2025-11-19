@@ -53,6 +53,10 @@ public class Exame {
     public void setConsulta(Consulta consulta) {
         this.consulta = consulta;
     }
+
+    public Consulta getConsulta() {
+        return consulta;
+    }
     
     
 }
