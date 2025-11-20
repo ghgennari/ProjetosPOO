@@ -15,7 +15,7 @@ public class Paciente extends Pessoa {
     private double peso;
     private ArrayList<Consulta> consultas;
 
-    public Paciente(LocalDate dataNascimento, String cpf, String nome) {
+    public Paciente(String cpf, String nome, LocalDate dataNascimento) {
         super(cpf, nome);
         this.dataNascimento = dataNascimento;
         consultas = new ArrayList<Consulta>();
@@ -50,7 +50,7 @@ public class Paciente extends Pessoa {
     }
     
     public int calcIdade(LocalDate dataAtual){
-        return Period.between(dataNascimento, dataAtual).getYears();
+        return Period.between(getDataNascimento(), dataAtual).getYears();
     }
     
 }
