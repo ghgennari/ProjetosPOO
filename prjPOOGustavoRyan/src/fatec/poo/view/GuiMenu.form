@@ -44,16 +44,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Marcar Consulta"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemMarcarConsultaActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemMarcarExame">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Marcar Exame"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemMarcarExameActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPrescreverMedicacao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Prescrever Medicacao"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPrescreverMedicacaoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

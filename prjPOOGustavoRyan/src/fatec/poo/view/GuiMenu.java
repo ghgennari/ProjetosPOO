@@ -70,12 +70,27 @@ public class GuiMenu extends javax.swing.JFrame {
         jMenuRegistro.setText("Registro");
 
         jMenuItemMarcarConsulta.setText("Marcar Consulta");
+        jMenuItemMarcarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMarcarConsultaActionPerformed(evt);
+            }
+        });
         jMenuRegistro.add(jMenuItemMarcarConsulta);
 
         jMenuItemMarcarExame.setText("Marcar Exame");
+        jMenuItemMarcarExame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMarcarExameActionPerformed(evt);
+            }
+        });
         jMenuRegistro.add(jMenuItemMarcarExame);
 
         jMenuItemPrescreverMedicacao.setText("Prescrever Medicacao");
+        jMenuItemPrescreverMedicacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPrescreverMedicacaoActionPerformed(evt);
+            }
+        });
         jMenuRegistro.add(jMenuItemPrescreverMedicacao);
 
         jMenuBar1.add(jMenuRegistro);
@@ -97,16 +112,28 @@ public class GuiMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMedicoActionPerformed
-        // TODO add your handling code here:
+        new GuiCadastroMedico().setVisible(true);
     }//GEN-LAST:event_jMenuItemMedicoActionPerformed
 
     private void jMenuItemPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPacienteActionPerformed
-        // TODO add your handling code here:
+        new GuiCadastroPaciente().setVisible(true);
     }//GEN-LAST:event_jMenuItemPacienteActionPerformed
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
         dispose();
     }//GEN-LAST:event_jMenuItemSairActionPerformed
+
+    private void jMenuItemMarcarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMarcarConsultaActionPerformed
+        new GuiMarcarConsulta().setVisible(true);
+    }//GEN-LAST:event_jMenuItemMarcarConsultaActionPerformed
+
+    private void jMenuItemMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMarcarExameActionPerformed
+        new GuiMarcarExame().setVisible(true);
+    }//GEN-LAST:event_jMenuItemMarcarExameActionPerformed
+
+    private void jMenuItemPrescreverMedicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPrescreverMedicacaoActionPerformed
+        new GuiPrescreverMedicacao().setVisible(true);
+    }//GEN-LAST:event_jMenuItemPrescreverMedicacaoActionPerformed
 
     /**
      * @param args the command line arguments
