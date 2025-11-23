@@ -12,6 +12,7 @@ public class Consulta {
     private String data;
     private double valor;
     private Medico medico;
+    private Paciente paciente;
     private ArrayList<Medicacao> medicacoes;
     private ArrayList<Exame> exames;
 
@@ -62,7 +63,9 @@ public class Consulta {
     public Medico getMedico() {
         return medico;
     }
-    
-    
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
     
 }

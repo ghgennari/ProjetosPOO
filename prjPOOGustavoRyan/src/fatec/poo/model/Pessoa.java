@@ -39,4 +39,8 @@ public class Pessoa {
     public String getTelefone() {
         return telefone;
     }
+    
+//    public static boolean validarCPF(String){
+//        return boolean;
+//    }
 }
