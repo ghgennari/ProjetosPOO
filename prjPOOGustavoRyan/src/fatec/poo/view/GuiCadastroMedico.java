@@ -38,7 +38,7 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
         txtTelefoneMedico = new javax.swing.JTextField();
         txtCRM = new javax.swing.JTextField();
         cbxEspecializacao = new javax.swing.JComboBox<>();
-        txtformatCPFMedico = new javax.swing.JFormattedTextField();
+        txtFormatCPFMedico = new javax.swing.JFormattedTextField();
         btnConsultarMedico = new javax.swing.JButton();
         btnInserirMedico = new javax.swing.JButton();
         btnAlterarMedico = new javax.swing.JButton();
@@ -46,6 +46,7 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
         btnSairMedico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro Médico");
 
         jLabel1.setText("CPF");
 
@@ -67,13 +68,13 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
         });
 
         try {
-            txtformatCPFMedico.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtFormatCPFMedico.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtformatCPFMedico.addActionListener(new java.awt.event.ActionListener() {
+        txtFormatCPFMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtformatCPFMedicoActionPerformed(evt);
+                txtFormatCPFMedicoActionPerformed(evt);
             }
         });
 
@@ -85,6 +86,11 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
         });
 
         btnInserirMedico.setText("Inserir");
+        btnInserirMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInserirMedicoActionPerformed(evt);
+            }
+        });
 
         btnAlterarMedico.setText("Alterar");
 
@@ -123,7 +129,7 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtformatCPFMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtFormatCPFMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtEnderecoMedico)))
                         .addComponent(txtNomeMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -149,7 +155,7 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(txtformatCPFMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFormatCPFMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -181,12 +187,13 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtformatCPFMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtformatCPFMedicoActionPerformed
+    private void txtFormatCPFMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFormatCPFMedicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtformatCPFMedicoActionPerformed
+    }//GEN-LAST:event_txtFormatCPFMedicoActionPerformed
 
     private void btnConsultarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarMedicoActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_btnConsultarMedicoActionPerformed
 
     private void cbxEspecializacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEspecializacaoActionPerformed
@@ -196,6 +203,10 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
     private void btnSairMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairMedicoActionPerformed
         dispose();
     }//GEN-LAST:event_btnSairMedicoActionPerformed
+
+    private void btnInserirMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirMedicoActionPerformed
+        
+    }//GEN-LAST:event_btnInserirMedicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,8 +258,8 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txtCRM;
     private javax.swing.JTextField txtEnderecoMedico;
+    private javax.swing.JFormattedTextField txtFormatCPFMedico;
     private javax.swing.JTextField txtNomeMedico;
     private javax.swing.JTextField txtTelefoneMedico;
-    private javax.swing.JFormattedTextField txtformatCPFMedico;
     // End of variables declaration//GEN-END:variables
 }

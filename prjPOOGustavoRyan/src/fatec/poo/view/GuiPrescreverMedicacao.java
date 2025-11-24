@@ -27,21 +27,156 @@ public class GuiPrescreverMedicacao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        txtNomePrescreverMedicacao = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtCodigoConsultaPrescreverMedicacao = new javax.swing.JTextField();
+        txtDosagem = new javax.swing.JTextField();
+        btnMedicoPrescreverMedicacao = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtMedicoPrescreverMedicacao = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtQuantidadeDias = new javax.swing.JTextField();
+        btnConsultarPrescreverMedicacao = new javax.swing.JButton();
+        btnInserirPrescreverMedicacao = new javax.swing.JButton();
+        btnAlterarPrescreverMedicacao = new javax.swing.JButton();
+        btnExcluirPrescreverMedicacao = new javax.swing.JButton();
+        btnSairPrescreverMedicacao = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Prescrever Medicação");
+
+        jLabel1.setText("Nome");
+
+        txtNomePrescreverMedicacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomePrescreverMedicacaoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Código Consulta");
+
+        jLabel3.setText("Dosagem");
+
+        btnMedicoPrescreverMedicacao.setText("...");
+
+        jLabel4.setText("Médico");
+
+        jLabel5.setText("Quantidade Dias");
+
+        btnConsultarPrescreverMedicacao.setText("Consultar");
+        btnConsultarPrescreverMedicacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarPrescreverMedicacaoActionPerformed(evt);
+            }
+        });
+
+        btnInserirPrescreverMedicacao.setText("Inserir");
+
+        btnAlterarPrescreverMedicacao.setText("Alterar");
+
+        btnExcluirPrescreverMedicacao.setText("Excluir");
+
+        btnSairPrescreverMedicacao.setText("Sair");
+        btnSairPrescreverMedicacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairPrescreverMedicacaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtQuantidadeDias, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(57, 57, 57)
+                        .addComponent(txtDosagem))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNomePrescreverMedicacao, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                            .addComponent(txtCodigoConsultaPrescreverMedicacao))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMedicoPrescreverMedicacao)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(txtMedicoPrescreverMedicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(105, Short.MAX_VALUE)
+                .addComponent(btnConsultarPrescreverMedicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnInserirPrescreverMedicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAlterarPrescreverMedicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnExcluirPrescreverMedicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSairPrescreverMedicacao)
+                .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAlterarPrescreverMedicacao, btnConsultarPrescreverMedicacao, btnExcluirPrescreverMedicacao, btnInserirPrescreverMedicacao, btnSairPrescreverMedicacao});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNomePrescreverMedicacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCodigoConsultaPrescreverMedicacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMedicoPrescreverMedicacao)
+                    .addComponent(jLabel4)
+                    .addComponent(txtMedicoPrescreverMedicacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtDosagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtQuantidadeDias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConsultarPrescreverMedicacao)
+                    .addComponent(btnInserirPrescreverMedicacao)
+                    .addComponent(btnAlterarPrescreverMedicacao)
+                    .addComponent(btnExcluirPrescreverMedicacao)
+                    .addComponent(btnSairPrescreverMedicacao))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNomePrescreverMedicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePrescreverMedicacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomePrescreverMedicacaoActionPerformed
+
+    private void btnConsultarPrescreverMedicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarPrescreverMedicacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultarPrescreverMedicacaoActionPerformed
+
+    private void btnSairPrescreverMedicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairPrescreverMedicacaoActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSairPrescreverMedicacaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +214,21 @@ public class GuiPrescreverMedicacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterarPrescreverMedicacao;
+    private javax.swing.JButton btnConsultarPrescreverMedicacao;
+    private javax.swing.JButton btnExcluirPrescreverMedicacao;
+    private javax.swing.JButton btnInserirPrescreverMedicacao;
+    private javax.swing.JButton btnMedicoPrescreverMedicacao;
+    private javax.swing.JButton btnSairPrescreverMedicacao;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField txtCodigoConsultaPrescreverMedicacao;
+    private javax.swing.JTextField txtDosagem;
+    private javax.swing.JTextField txtMedicoPrescreverMedicacao;
+    private javax.swing.JTextField txtNomePrescreverMedicacao;
+    private javax.swing.JTextField txtQuantidadeDias;
     // End of variables declaration//GEN-END:variables
 }

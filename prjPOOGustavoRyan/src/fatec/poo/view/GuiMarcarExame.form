@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Marcar Exame"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -41,15 +42,15 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="txtCodigoMarcarExame1" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="txtCodigoConsultaMarcarExame" min="-2" pref="100" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnMedicoMarcarExame" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="txtCodigoMarcarExame3" min="-2" pref="130" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="txtCodigoMarcarExame2" max="32767" attributes="0"/>
+                                  <Component id="txtDescricao" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -61,25 +62,25 @@
                               <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="txtCodigoMarcarExame4" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <Component id="txtCodigoMarcarExame5" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="txtHorario" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="txtValorMarcarExame" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jFormattedTextField1" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="txtFormatDataMarcarExame" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-                      <Component id="btnConsultarPaciente8" linkSize="1" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="btnConsultarMarcarExame" linkSize="1" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnInserirPaciente" linkSize="1" min="-2" pref="69" max="-2" attributes="0"/>
+                      <Component id="btnInserirMarcarExame" linkSize="1" min="-2" pref="69" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAlterarPaciente" linkSize="1" min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="btnAlterarMarcarExame" linkSize="1" min="-2" pref="71" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnExcluirPaciente" linkSize="1" min="-2" pref="69" max="-2" attributes="0"/>
+                      <Component id="btnExcluirMarcarExame" linkSize="1" min="-2" pref="69" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnSairPaciente1" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSairMarcarExame" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="22" max="32767" attributes="0"/>
@@ -97,38 +98,38 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCodigoMarcarExame1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCodigoConsultaMarcarExame" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMedicoMarcarExame" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtCodigoMarcarExame3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCodigoMarcarExame2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtFormatDataMarcarExame" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCodigoMarcarExame4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtHorario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCodigoMarcarExame5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtValorMarcarExame" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnConsultarPaciente8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnInserirPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAlterarPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnExcluirPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSairPaciente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnConsultarMarcarExame" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnInserirMarcarExame" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAlterarMarcarExame" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnExcluirMarcarExame" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSairMarcarExame" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
@@ -151,9 +152,9 @@
         <Property name="text" type="java.lang.String" value="C&#xf3;digo Consulta"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCodigoMarcarExame1">
+    <Component class="javax.swing.JTextField" name="txtCodigoConsultaMarcarExame">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoMarcarExame1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoConsultaMarcarExameActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -161,12 +162,12 @@
         <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCodigoMarcarExame2">
+    <Component class="javax.swing.JTextField" name="txtDescricao">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoMarcarExame2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDescricaoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnMedicoMarcarExame">
       <Properties>
         <Property name="text" type="java.lang.String" value="..."/>
       </Properties>
@@ -196,52 +197,52 @@
         <Property name="text" type="java.lang.String" value="Valor"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCodigoMarcarExame4">
+    <Component class="javax.swing.JTextField" name="txtHorario">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoMarcarExame4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHorarioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCodigoMarcarExame5">
+    <Component class="javax.swing.JTextField" name="txtValorMarcarExame">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoMarcarExame5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValorMarcarExameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+    <Component class="javax.swing.JFormattedTextField" name="txtFormatDataMarcarExame">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="##/##/####" subtype="-1" type="5"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnConsultarPaciente8">
+    <Component class="javax.swing.JButton" name="btnConsultarMarcarExame">
       <Properties>
         <Property name="text" type="java.lang.String" value="Consultar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarPaciente8ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarMarcarExameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnInserirPaciente">
+    <Component class="javax.swing.JButton" name="btnInserirMarcarExame">
       <Properties>
         <Property name="text" type="java.lang.String" value="Inserir"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnAlterarPaciente">
+    <Component class="javax.swing.JButton" name="btnAlterarMarcarExame">
       <Properties>
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnExcluirPaciente">
+    <Component class="javax.swing.JButton" name="btnExcluirMarcarExame">
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnSairPaciente1">
+    <Component class="javax.swing.JButton" name="btnSairMarcarExame">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairPaciente1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairMarcarExameActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

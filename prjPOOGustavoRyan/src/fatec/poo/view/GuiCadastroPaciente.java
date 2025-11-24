@@ -45,9 +45,10 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
         txtAltura = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtPeso = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txtFormatCadastroPaciente = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro Paciente");
 
         try {
             txtformatCPFPaciente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -95,7 +96,7 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
         jLabel7.setText("Peso");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            txtFormatCadastroPaciente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -146,7 +147,7 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtTelefonePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                .addComponent(jFormattedTextField1)))))
+                                .addComponent(txtFormatCadastroPaciente)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -174,7 +175,7 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFormatCadastroPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -249,7 +250,6 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluirPaciente;
     private javax.swing.JButton btnInserirPaciente;
     private javax.swing.JButton btnSairPaciente;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -259,6 +259,7 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txtAltura;
     private javax.swing.JTextField txtEnderecoPaciente;
+    private javax.swing.JFormattedTextField txtFormatCadastroPaciente;
     private javax.swing.JTextField txtNomePaciente;
     private javax.swing.JTextField txtPeso;
     private javax.swing.JTextField txtTelefonePaciente;
