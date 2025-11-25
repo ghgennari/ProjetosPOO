@@ -28,21 +28,21 @@
               <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnConsultarPaciente" linkSize="1" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="btnConsultar" linkSize="1" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnInserirPaciente" linkSize="1" min="-2" pref="69" max="-2" attributes="0"/>
+                      <Component id="btnInserir" linkSize="1" min="-2" pref="69" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAlterarPaciente" linkSize="1" min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="btnAlterar" linkSize="1" min="-2" pref="71" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnExcluirPaciente" linkSize="1" min="-2" pref="69" max="-2" attributes="0"/>
+                      <Component id="btnExcluir" linkSize="1" min="-2" pref="69" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnSairPaciente" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSair" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" pref="41" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="txtNomePaciente" min="-2" pref="317" max="-2" attributes="0"/>
+                          <Component id="txtNome" min="-2" pref="317" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -51,8 +51,8 @@
                           </Group>
                           <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtEnderecoPaciente" min="-2" pref="317" max="-2" attributes="0"/>
-                              <Component id="txtformatCPFPaciente" min="-2" pref="111" max="-2" attributes="0"/>
+                              <Component id="txtEndereco" min="-2" pref="317" max="-2" attributes="0"/>
+                              <Component id="txtCPF" min="-2" pref="111" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -73,8 +73,8 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtTelefonePaciente" pref="111" max="32767" attributes="0"/>
-                              <Component id="txtFormatCadastroPaciente" max="32767" attributes="0"/>
+                              <Component id="txtTelefone" pref="111" max="32767" attributes="0"/>
+                              <Component id="txtDataNascimento" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -88,28 +88,28 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtformatCPFPaciente" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="txtCPF" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNomePaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtEnderecoPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTelefonePaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFormatCadastroPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -123,11 +123,11 @@
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnConsultarPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnInserirPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAlterarPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnExcluirPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSairPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnInserir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSair" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="34" max="32767" attributes="0"/>
           </Group>
@@ -135,32 +135,32 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtTelefonePaciente">
+    <Component class="javax.swing.JTextField" name="txtTelefone">
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="txtformatCPFPaciente">
+    <Component class="javax.swing.JFormattedTextField" name="txtCPF">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="###.###.###-##" subtype="-1" type="5"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtformatCPFPacienteActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPFActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnConsultarPaciente">
+    <Component class="javax.swing.JButton" name="btnConsultar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Consultar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarPacienteActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnInserirPaciente">
+    <Component class="javax.swing.JButton" name="btnInserir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Inserir"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnAlterarPaciente">
+    <Component class="javax.swing.JButton" name="btnAlterar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
@@ -190,21 +190,21 @@
         <Property name="text" type="java.lang.String" value="Data Nascimento"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNomePaciente">
+    <Component class="javax.swing.JTextField" name="txtNome">
     </Component>
-    <Component class="javax.swing.JButton" name="btnExcluirPaciente">
+    <Component class="javax.swing.JButton" name="btnExcluir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtEnderecoPaciente">
+    <Component class="javax.swing.JTextField" name="txtEndereco">
     </Component>
-    <Component class="javax.swing.JButton" name="btnSairPaciente">
+    <Component class="javax.swing.JButton" name="btnSair">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairPacienteActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -221,7 +221,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtPeso">
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="txtFormatCadastroPaciente">
+    <Component class="javax.swing.JFormattedTextField" name="txtDataNascimento">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="##/##/####" subtype="-1" type="5"/>

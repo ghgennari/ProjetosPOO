@@ -28,42 +28,42 @@ public class GuiMarcarExame extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtCodigoMarcarExame = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtCodigoConsultaMarcarExame = new javax.swing.JTextField();
+        txtCodigoConsulta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtDescricao = new javax.swing.JTextField();
         btnMedicoMarcarExame = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtCodigoMarcarExame3 = new javax.swing.JTextField();
+        txtMedico = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtHorario = new javax.swing.JTextField();
-        txtValorMarcarExame = new javax.swing.JTextField();
-        txtFormatDataMarcarExame = new javax.swing.JFormattedTextField();
-        btnConsultarMarcarExame = new javax.swing.JButton();
-        btnInserirMarcarExame = new javax.swing.JButton();
-        btnAlterarMarcarExame = new javax.swing.JButton();
-        btnExcluirMarcarExame = new javax.swing.JButton();
-        btnSairMarcarExame = new javax.swing.JButton();
+        txtValor = new javax.swing.JTextField();
+        txtData = new javax.swing.JFormattedTextField();
+        btnConsultar = new javax.swing.JButton();
+        btnInserir = new javax.swing.JButton();
+        btnAlterar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Marcar Exame");
 
         jLabel1.setText("Código");
 
-        txtCodigoMarcarExame.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoMarcarExameActionPerformed(evt);
+                txtCodigoActionPerformed(evt);
             }
         });
 
         jLabel2.setText("Código Consulta");
 
-        txtCodigoConsultaMarcarExame.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigoConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoConsultaMarcarExameActionPerformed(evt);
+                txtCodigoConsultaActionPerformed(evt);
             }
         });
 
@@ -79,9 +79,9 @@ public class GuiMarcarExame extends javax.swing.JFrame {
 
         jLabel4.setText("Médico");
 
-        txtCodigoMarcarExame3.addActionListener(new java.awt.event.ActionListener() {
+        txtMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoMarcarExame3ActionPerformed(evt);
+                txtMedicoActionPerformed(evt);
             }
         });
 
@@ -97,35 +97,35 @@ public class GuiMarcarExame extends javax.swing.JFrame {
             }
         });
 
-        txtValorMarcarExame.addActionListener(new java.awt.event.ActionListener() {
+        txtValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorMarcarExameActionPerformed(evt);
+                txtValorActionPerformed(evt);
             }
         });
 
         try {
-            txtFormatDataMarcarExame.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        btnConsultarMarcarExame.setText("Consultar");
-        btnConsultarMarcarExame.addActionListener(new java.awt.event.ActionListener() {
+        btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarMarcarExameActionPerformed(evt);
+                btnConsultarActionPerformed(evt);
             }
         });
 
-        btnInserirMarcarExame.setText("Inserir");
+        btnInserir.setText("Inserir");
 
-        btnAlterarMarcarExame.setText("Alterar");
+        btnAlterar.setText("Alterar");
 
-        btnExcluirMarcarExame.setText("Excluir");
+        btnExcluir.setText("Excluir");
 
-        btnSairMarcarExame.setText("Sair");
-        btnSairMarcarExame.addActionListener(new java.awt.event.ActionListener() {
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairMarcarExameActionPerformed(evt);
+                btnSairActionPerformed(evt);
             }
         });
 
@@ -141,7 +141,7 @@ public class GuiMarcarExame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(66, 66, 66)
-                                .addComponent(txtCodigoMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -149,13 +149,13 @@ public class GuiMarcarExame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtCodigoConsultaMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCodigoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnMedicoMarcarExame)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel4)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtCodigoMarcarExame3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtDescricao)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,23 +166,23 @@ public class GuiMarcarExame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtValorMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtFormatDataMarcarExame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
-                        .addComponent(btnConsultarMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnInserirMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAlterarMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExcluirMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSairMarcarExame)))
+                        .addComponent(btnSair)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAlterarMarcarExame, btnConsultarMarcarExame, btnExcluirMarcarExame, btnInserirMarcarExame, btnSairMarcarExame});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAlterar, btnConsultar, btnExcluir, btnInserir, btnSair});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,14 +190,14 @@ public class GuiMarcarExame extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtCodigoMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtCodigoConsultaMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMedicoMarcarExame)
                     .addComponent(jLabel4)
-                    .addComponent(txtCodigoMarcarExame3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -205,7 +205,7 @@ public class GuiMarcarExame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtFormatDataMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -213,51 +213,51 @@ public class GuiMarcarExame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtValorMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConsultarMarcarExame)
-                    .addComponent(btnInserirMarcarExame)
-                    .addComponent(btnAlterarMarcarExame)
-                    .addComponent(btnExcluirMarcarExame)
-                    .addComponent(btnSairMarcarExame))
+                    .addComponent(btnConsultar)
+                    .addComponent(btnInserir)
+                    .addComponent(btnAlterar)
+                    .addComponent(btnExcluir)
+                    .addComponent(btnSair))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCodigoMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoMarcarExameActionPerformed
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoMarcarExameActionPerformed
+    }//GEN-LAST:event_txtCodigoActionPerformed
 
-    private void txtCodigoConsultaMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoConsultaMarcarExameActionPerformed
+    private void txtCodigoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoConsultaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoConsultaMarcarExameActionPerformed
+    }//GEN-LAST:event_txtCodigoConsultaActionPerformed
 
     private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescricaoActionPerformed
 
-    private void txtCodigoMarcarExame3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoMarcarExame3ActionPerformed
+    private void txtMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoMarcarExame3ActionPerformed
+    }//GEN-LAST:event_txtMedicoActionPerformed
 
     private void txtHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHorarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHorarioActionPerformed
 
-    private void txtValorMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorMarcarExameActionPerformed
+    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorMarcarExameActionPerformed
+    }//GEN-LAST:event_txtValorActionPerformed
 
-    private void btnConsultarMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarMarcarExameActionPerformed
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnConsultarMarcarExameActionPerformed
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
-    private void btnSairMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairMarcarExameActionPerformed
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         dispose();
-    }//GEN-LAST:event_btnSairMarcarExameActionPerformed
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,12 +295,12 @@ public class GuiMarcarExame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlterarMarcarExame;
-    private javax.swing.JButton btnConsultarMarcarExame;
-    private javax.swing.JButton btnExcluirMarcarExame;
-    private javax.swing.JButton btnInserirMarcarExame;
+    private javax.swing.JButton btnAlterar;
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnInserir;
     private javax.swing.JButton btnMedicoMarcarExame;
-    private javax.swing.JButton btnSairMarcarExame;
+    private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -308,12 +308,12 @@ public class GuiMarcarExame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField txtCodigoConsultaMarcarExame;
-    private javax.swing.JTextField txtCodigoMarcarExame;
-    private javax.swing.JTextField txtCodigoMarcarExame3;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtCodigoConsulta;
+    private javax.swing.JFormattedTextField txtData;
     private javax.swing.JTextField txtDescricao;
-    private javax.swing.JFormattedTextField txtFormatDataMarcarExame;
     private javax.swing.JTextField txtHorario;
-    private javax.swing.JTextField txtValorMarcarExame;
+    private javax.swing.JTextField txtMedico;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
