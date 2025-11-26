@@ -40,7 +40,30 @@ public class Pessoa {
         return telefone;
     }
     
-//    public static boolean validarCPF(String){
-//        return boolean;
-//    }
+    public static boolean validarCPF(String cpf){
+    cpf = cpf.replaceAll("[^0-9]", "");
+
+    if (cpf.length() != 11)
+        return false;
+
+    if (cpf.matches("(\\d)\\1{10}"))
+        return false;
+
+    int soma = 0;
+    for (int i = 0; i < 9; i++)
+        soma += Character.getNumericValue(cpf.charAt(i)) * (i + 1);
+
+    int digito1 = soma % 11;
+    if (digito1 == 10) digito1 = 0;
+
+    soma = 0;
+    for (int i = 0; i < 10; i++)
+        soma += Character.getNumericValue(cpf.charAt(i)) * (11 - i);
+
+    int digito2 = (soma * 10) % 11;
+    if (digito2 == 10) digito2 = 0;
+
+    return digito1 == Character.getNumericValue(cpf.charAt(9)) &&
+           digito2 == Character.getNumericValue(cpf.charAt(10));
+    }
 }
