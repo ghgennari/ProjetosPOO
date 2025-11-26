@@ -243,6 +243,12 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
         }else{
             txtNome.setText(objMed.getNome());
             
+            txtNome.setText(objMed.getNome());
+            txtEndereco.setText(objMed.getEndereco());
+            txtTelefone.setText(objMed.getTelefone());
+            txtCRM.setText(objMed.getCrm());
+            cbxEspecializacao.setSelectedItem(objMed.getEspecialidade());
+            
             txtCPF.setEnabled(false);
             txtNome.setEnabled(true);
             txtNome.requestFocus();
@@ -250,6 +256,7 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
             txtTelefone.setEnabled(true);
             txtCRM.setEnabled(true);
             cbxEspecializacao.setEnabled(true);
+            txtNome.requestFocus();
             
             btnConsultar.setEnabled(false);
             btnInserir.setEnabled(false);
@@ -293,7 +300,24 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        txtCPF.setText(null);
+        txtNome.setText(null);
+        txtEndereco.setText(null);
+        txtTelefone.setText(null);
+        txtCRM.setText(null);
+        cbxEspecializacao.setSelectedIndex(0);
+        txtCPF.setEnabled(true);
+        txtNome.setEnabled(false);
+        txtEndereco.setEnabled(false);
+        txtTelefone.setEnabled(false);
+        txtCRM.setEnabled(false);
         
+        txtCPF.requestFocus();
+        
+        btnConsultar.setEnabled(true);
+        btnInserir.setEnabled(false);
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
     }//GEN-LAST:event_btnAlterarActionPerformed
 
 
