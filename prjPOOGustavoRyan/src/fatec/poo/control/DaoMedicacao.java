@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import fatec.poo.model.Consulta;
 import fatec.poo.model.Medicacao;
 
 /**
@@ -19,14 +20,14 @@ public class DaoMedicacao {
         this.conn = conn;
     }
 
-    public void inserir(Medicacao medicacao){
+    public void inserir(Medicacao medicacao, Consulta consulta){
         PreparedStatement ps = null;
         try{
             ps = conn.prepareStatement("INSERT INTO tbMedicacao(Nome,Dosagem,qtdeDias,CodiConsulta) VALUES (?,?,?,?)");
             ps.setString(1, medicacao.getNome());
             ps.setString(2, medicacao.getDosagem());
             ps.setInt(3, medicacao.getQtdeDias());
-            ps.setInt(4, medicacao.getConsulta().getCodigo()); //Medicicao nao aponta pra consulta na modelagem
+            ps.setInt(4, consulta.getCodigo()); //Medicicao nao aponta pra consulta na modelagem
 
             ps.execute();
         }catch(SQLException ex){
