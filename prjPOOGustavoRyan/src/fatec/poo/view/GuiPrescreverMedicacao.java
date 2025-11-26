@@ -63,6 +63,8 @@ public class GuiPrescreverMedicacao extends javax.swing.JFrame {
 
         jLabel4.setText("Médico");
 
+        txtMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
         jLabel5.setText("Quantidade Dias");
 
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N

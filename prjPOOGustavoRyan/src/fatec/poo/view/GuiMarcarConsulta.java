@@ -64,6 +64,10 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
 
         btnCpfPaciente.setText("...");
 
+        txtMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        txtPaciente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
         try {
             txtCPFMedico.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {

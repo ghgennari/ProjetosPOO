@@ -79,6 +79,7 @@ public class GuiMarcarExame extends javax.swing.JFrame {
 
         jLabel4.setText("Médico");
 
+        txtMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMedicoActionPerformed(evt);
