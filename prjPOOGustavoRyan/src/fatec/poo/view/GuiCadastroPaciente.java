@@ -290,7 +290,6 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
        prepCon = new PreparaConexao("",""); //Usuário e senha                            
        prepCon.setDriver("net.ucanaccess.jdbc.UcanaccessDriver");
        prepCon.setConnectionString("jdbc:ucanaccess://G:\\Meu Drive\\Faculdade\\4º Semestre\\Programação Orientada a Objetos\\ProjetosPOO\\prjPOOGustavoRyan\\src\\fatec\\poo\\basedados\\dbClinica.accdb" );

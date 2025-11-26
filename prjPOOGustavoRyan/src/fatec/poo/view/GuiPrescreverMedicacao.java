@@ -5,6 +5,10 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.DaoMedicacao;
+import fatec.poo.control.PreparaConexao;
+import fatec.poo.model.Medicacao;
+
 /**
  *
  * @author nerdr
@@ -46,6 +50,11 @@ public class GuiPrescreverMedicacao extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Prescrever Medicação");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setText("Nome");
 
@@ -59,13 +68,21 @@ public class GuiPrescreverMedicacao extends javax.swing.JFrame {
 
         jLabel3.setText("Dosagem");
 
+        txtCodigoConsulta.setEnabled(false);
+
+        txtDosagem.setEnabled(false);
+
         btnMedicoPrescreverMedicacao.setText("...");
+        btnMedicoPrescreverMedicacao.setEnabled(false);
 
         jLabel4.setText("Médico");
 
         txtMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtMedico.setEnabled(false);
 
         jLabel5.setText("Quantidade Dias");
+
+        txtQuantidadeDias.setEnabled(false);
 
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         btnConsultar.setText("Consultar");
@@ -77,12 +94,15 @@ public class GuiPrescreverMedicacao extends javax.swing.JFrame {
 
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnInserir.setText("Inserir");
+        btnInserir.setEnabled(false);
 
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
+        btnAlterar.setEnabled(false);
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
+        btnExcluir.setEnabled(false);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
@@ -185,6 +205,13 @@ public class GuiPrescreverMedicacao extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       prepCon = new PreparaConexao("",""); //Usuário e senha                            
+       prepCon.setDriver("net.ucanaccess.jdbc.UcanaccessDriver");
+       prepCon.setConnectionString("jdbc:ucanaccess://G:\\Meu Drive\\Faculdade\\4º Semestre\\Programação Orientada a Objetos\\ProjetosPOO\\prjPOOGustavoRyan\\src\\fatec\\poo\\basedados\\dbClinica.accdb" );
+       daoMedicacao = new DaoMedicacao(prepCon.abrirConexao());
+    }//GEN-LAST:event_formWindowOpened
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -205,4 +232,7 @@ public class GuiPrescreverMedicacao extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtQuantidadeDias;
     // End of variables declaration//GEN-END:variables
+    private DaoMedicacao daoMedicacao=null;
+    private Medicacao objMedicacao=null;
+    private PreparaConexao prepCon=null;
 }
