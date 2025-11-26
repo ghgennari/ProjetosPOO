@@ -5,6 +5,10 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.DaoMedico;
+import fatec.poo.control.PreparaConexao;
+import fatec.poo.model.Medico;
+
 /**
  *
  * @author nerdr
@@ -47,6 +51,11 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Médico");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setText("CPF");
 
@@ -60,7 +69,16 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
 
         jLabel6.setText("Especialização");
 
+        txtNome.setEnabled(false);
+
+        txtEndereco.setEnabled(false);
+
+        txtTelefone.setEnabled(false);
+
+        txtCRM.setEnabled(false);
+
         cbxEspecializacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cardiologia", "Endocrinologia", "Nefrologia", "Pneumatologia" }));
+        cbxEspecializacao.setEnabled(false);
         cbxEspecializacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxEspecializacaoActionPerformed(evt);
@@ -88,6 +106,7 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
 
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnInserir.setText("Inserir");
+        btnInserir.setEnabled(false);
         btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInserirActionPerformed(evt);
@@ -96,9 +115,11 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
 
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
+        btnAlterar.setEnabled(false);
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
+        btnExcluir.setEnabled(false);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
@@ -197,6 +218,39 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCPFActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        objMed = null;
+        objMed = daoMedico.consultar(txtCPF.getText());
+        
+        if(objMed == null){
+            txtCPF.setEnabled(false);
+            txtNome.setEnabled(true);
+            txtNome.requestFocus();
+            txtEndereco.setEnabled(true);
+            txtTelefone.setEnabled(true);
+            txtCRM.setEnabled(true);
+            cbxEspecializacao.setEnabled(true);
+            
+            btnConsultar.setEnabled(false);
+            btnInserir.setEnabled(true);
+            btnAlterar.setEnabled(false);
+            btnExcluir.setEnabled(false);
+            
+        }else{
+            txtNome.setText(objMed.getNome());
+            
+            txtCPF.setEnabled(false);
+            txtNome.setEnabled(true);
+            txtNome.requestFocus();
+            txtEndereco.setEnabled(true);
+            txtTelefone.setEnabled(true);
+            txtCRM.setEnabled(true);
+            cbxEspecializacao.setEnabled(true);
+            
+            btnConsultar.setEnabled(false);
+            btnInserir.setEnabled(false);
+            btnAlterar.setEnabled(true);
+            btnExcluir.setEnabled(true);
+        }
         
         
     }//GEN-LAST:event_btnConsultarActionPerformed
@@ -210,8 +264,28 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
+        objMed = new Medico(txtCPF.getText(),
+                            txtNome.getText(),
+                            txtCRM.getText(),
+                            cbxEspecializacao.getSelectedItem().toString()); 
         
+        txtNome.setText(null);
+        txtEndereco.setText(null);
+        txtTelefone.setText(null);
+        txtCRM.setText(null);
+        cbxEspecializacao.setSelectedItem(0);
+        
+        btnConsultar.setEnabled(true);
+        btnInserir.setEnabled(true);
+       
     }//GEN-LAST:event_btnInserirActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       prepCon = new PreparaConexao("",""); //Usuário e senha                            
+       prepCon.setDriver("net.ucanaccess.jdbc.UcanaccessDriver");
+       prepCon.setConnectionString("jdbc:ucanaccess://" );
+       daoMedico = new DaoMedico(prepCon.abrirConexao());
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -267,4 +341,7 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+    private DaoMedico daoMedico=null;
+    private Medico objMed=null;
+    private PreparaConexao prepCon=null;
 }
