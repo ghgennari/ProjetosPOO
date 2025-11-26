@@ -116,6 +116,11 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
         btnAlterar.setEnabled(false);
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
@@ -286,6 +291,10 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
        prepCon.setConnectionString("jdbc:ucanaccess://G:\\Meu Drive\\Faculdade\\4º Semestre\\Programação Orientada a Objetos\\ProjetosPOO\\prjPOOGustavoRyan\\src\\fatec\\poo\\basedados\\dbClinica.accdb" );
        daoMedico = new DaoMedico(prepCon.abrirConexao());
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        
+    }//GEN-LAST:event_btnAlterarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
