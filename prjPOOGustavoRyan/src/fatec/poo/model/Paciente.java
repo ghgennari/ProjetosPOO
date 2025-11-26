@@ -50,7 +50,6 @@ public class Paciente extends Pessoa {
     }
     
     public int calcIdade(LocalDate dataAtual){
-        dataAtual = LocalDate.now();
         return Period.between(dataNascimento, dataAtual).getYears();
     }
     
