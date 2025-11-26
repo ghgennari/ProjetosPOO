@@ -2,6 +2,8 @@
 package fatec.poo.control;
 
 import fatec.poo.model.Consulta;
+import fatec.poo.model.Paciente;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +20,7 @@ public class DaoConsulta {
         this.conn = conn;
     }
     
-    public void inserir(Consulta consulta){
+    public void inserir(Consulta consulta, Paciente paciente){
         PreparedStatement ps = null;
         try{
             ps = conn.prepareStatement("INSERT INTO tbConsulta(Codigo,Data,Valor,CPFMedico,CPFPaciente) VALUES (?,?,?,?,?)");
@@ -26,7 +28,7 @@ public class DaoConsulta {
             ps.setString(2, consulta.getData());
             ps.setDouble(3, consulta.getValor());
             ps.setString(4, consulta.getMedico().getCpf());
-            ps.setString(5,consulta.getPaciente().getCpf());
+            ps.setString(5,paciente.getCpf());
             ps.execute();
         }catch(SQLException ex){
             System.out.println(ex.toString());
