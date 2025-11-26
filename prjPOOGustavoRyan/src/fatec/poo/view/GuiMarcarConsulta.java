@@ -5,6 +5,10 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.DaoConsulta;
+import fatec.poo.control.PreparaConexao;
+import fatec.poo.model.Consulta;
+
 /**
  *
  * @author nerdr
@@ -49,6 +53,11 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Marcar Consulta");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setText("Codigo");
 
@@ -60,31 +69,40 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
 
         jLabel5.setText("Valor");
 
+        txtValor.setEnabled(false);
+
         btnCpfMedico.setText("...");
+        btnCpfMedico.setEnabled(false);
 
         btnCpfPaciente.setText("...");
+        btnCpfPaciente.setEnabled(false);
 
         txtMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtMedico.setEnabled(false);
 
         txtPaciente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtPaciente.setEnabled(false);
 
         try {
             txtCPFMedico.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPFMedico.setEnabled(false);
 
         try {
             txtCPFPaciente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPFPaciente.setEnabled(false);
 
         try {
             txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtData.setEnabled(false);
 
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         btnConsultar.setText("Consultar");
@@ -96,12 +114,15 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
 
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnInserir.setText("Inserir");
+        btnInserir.setEnabled(false);
 
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
+        btnAlterar.setEnabled(false);
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
+        btnExcluir.setEnabled(false);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
@@ -216,6 +237,13 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       prepCon = new PreparaConexao("",""); //Usuário e senha                            
+       prepCon.setDriver("net.ucanaccess.jdbc.UcanaccessDriver");
+       prepCon.setConnectionString("jdbc:ucanaccess://G:\\Meu Drive\\Faculdade\\4º Semestre\\Programação Orientada a Objetos\\ProjetosPOO\\prjPOOGustavoRyan\\src\\fatec\\poo\\basedados\\dbClinica.accdb" );
+       daoConsulta = new DaoConsulta(prepCon.abrirConexao());
+    }//GEN-LAST:event_formWindowOpened
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -239,4 +267,7 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
     private javax.swing.JTextField txtPaciente;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
+    private DaoConsulta daoConsulta=null;
+    private Consulta objCon=null;
+    private PreparaConexao prepCon=null;
 }

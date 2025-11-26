@@ -5,6 +5,10 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.DaoExame;
+import fatec.poo.control.PreparaConexao;
+import fatec.poo.model.Exame;
+
 /**
  *
  * @author nerdr
@@ -50,6 +54,11 @@ public class GuiMarcarExame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Marcar Exame");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setText("Código");
 
@@ -61,6 +70,7 @@ public class GuiMarcarExame extends javax.swing.JFrame {
 
         jLabel2.setText("Código Consulta");
 
+        txtCodigoConsulta.setEnabled(false);
         txtCodigoConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoConsultaActionPerformed(evt);
@@ -69,6 +79,7 @@ public class GuiMarcarExame extends javax.swing.JFrame {
 
         jLabel3.setText("Descrição");
 
+        txtDescricao.setEnabled(false);
         txtDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescricaoActionPerformed(evt);
@@ -76,10 +87,12 @@ public class GuiMarcarExame extends javax.swing.JFrame {
         });
 
         btnMedicoMarcarExame.setText("...");
+        btnMedicoMarcarExame.setEnabled(false);
 
         jLabel4.setText("Médico");
 
         txtMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtMedico.setEnabled(false);
         txtMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMedicoActionPerformed(evt);
@@ -92,12 +105,14 @@ public class GuiMarcarExame extends javax.swing.JFrame {
 
         jLabel7.setText("Valor");
 
+        txtHorario.setEnabled(false);
         txtHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHorarioActionPerformed(evt);
             }
         });
 
+        txtValor.setEnabled(false);
         txtValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtValorActionPerformed(evt);
@@ -109,6 +124,7 @@ public class GuiMarcarExame extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtData.setEnabled(false);
 
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         btnConsultar.setText("Consultar");
@@ -120,12 +136,15 @@ public class GuiMarcarExame extends javax.swing.JFrame {
 
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnInserir.setText("Inserir");
+        btnInserir.setEnabled(false);
 
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
+        btnAlterar.setEnabled(false);
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
+        btnExcluir.setEnabled(false);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
@@ -265,6 +284,13 @@ public class GuiMarcarExame extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       prepCon = new PreparaConexao("",""); //Usuário e senha                            
+       prepCon.setDriver("net.ucanaccess.jdbc.UcanaccessDriver");
+       prepCon.setConnectionString("jdbc:ucanaccess://G:\\Meu Drive\\Faculdade\\4º Semestre\\Programação Orientada a Objetos\\ProjetosPOO\\prjPOOGustavoRyan\\src\\fatec\\poo\\basedados\\dbClinica.accdb" );
+       daoExame = new DaoExame(prepCon.abrirConexao());
+    }//GEN-LAST:event_formWindowOpened
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -289,4 +315,7 @@ public class GuiMarcarExame extends javax.swing.JFrame {
     private javax.swing.JTextField txtMedico;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
+    private DaoExame daoExame=null;
+    private Exame objExa=null;
+    private PreparaConexao prepCon=null;
 }
