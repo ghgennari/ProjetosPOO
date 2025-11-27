@@ -23,7 +23,7 @@ public class DaoMedicacao {
     public void inserir(Medicacao medicacao, Consulta consulta){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("INSERT INTO tbMedicacao(Nome,Dosagem,qtdeDias,CodiConsulta) VALUES (?,?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO tbMedicacao(Nome,Dosagem,qtdeDias,CodConsulta) VALUES (?,?,?,?)");
             ps.setString(1, medicacao.getNome());
             ps.setString(2, medicacao.getDosagem());
             ps.setInt(3, medicacao.getQtdeDias());

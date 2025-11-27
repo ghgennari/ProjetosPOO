@@ -3,6 +3,7 @@ package fatec.poo.model;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -29,8 +30,13 @@ public class Paciente extends Pessoa {
         this.peso = peso;
     }
 
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
     public String getDataNascimento() {
-        return dataNascimento.toString();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return dataNascimento.format(format);
     }
 
     public double getAltura() {

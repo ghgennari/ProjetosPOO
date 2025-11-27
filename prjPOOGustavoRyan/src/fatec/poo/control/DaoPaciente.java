@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -22,7 +23,7 @@ public class DaoPaciente {
     public void inserir(Paciente paciente){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("INSERT INTO tbPaciente(CPF, Nome, Endereco, Telefone, DataNascimento,Altura,Peso) VALUES (?,?,?,?,?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO tbPaciente(cpf, nome, endereco, telefone, dataNascimento,altura,peso) VALUES (?,?,?,?,?,?,?)");
             ps.setString(1,paciente.getCpf());
             ps.setString(2,paciente.getNome());
             ps.setString(3,paciente.getEndereco());
@@ -30,6 +31,7 @@ public class DaoPaciente {
             ps.setString(5,paciente.getDataNascimento());
             ps.setDouble(6,paciente.getAltura());
             ps.setDouble(7,paciente.getPeso());
+            ps.execute();
         }catch(SQLException ex){
             System.out.println(ex.toString());
         }
@@ -38,38 +40,50 @@ public class DaoPaciente {
     public void alterar(Paciente paciente){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("UPDATE tbPaciente SET Nome=?, Endereco=?, Telefone=?, DataNascimento=?,Altura=?,Peso=? WHERE CPF=?");
-            ps.setString(1,paciente.getCpf());
-            ps.setString(2,paciente.getNome());
-            ps.setString(3,paciente.getEndereco());
-            ps.setString(4,paciente.getTelefone());
-            ps.setString(5,paciente.getDataNascimento());
-            ps.setDouble(6,paciente.getAltura());
-            ps.setDouble(7,paciente.getPeso());
+            ps = conn.prepareStatement("UPDATE tbPaciente SET Nome=?, "
+                    + "Endereco=?, Telefone=?, "
+                    + "DataNascimento=?,Altura=?,Peso=? WHERE CPF=?");
+            ps.setString(1,paciente.getNome());
+            ps.setString(2,paciente.getEndereco());
+            ps.setString(3,paciente.getTelefone());
+            ps.setString(4,paciente.getDataNascimento());
+            ps.setDouble(5,paciente.getAltura());
+            ps.setDouble(6,paciente.getPeso());
+            ps.setString(7,paciente.getCpf());
+            ps.execute();
         }catch(SQLException ex){
             System.out.println(ex.toString());
         }
     }
     
     public Paciente consultar(String cpf){
-        Paciente p = null;
-        PreparedStatement ps = null;
-        
-        try{
-            ps = conn.prepareStatement("SELECT * FROM tbPaciente WHERE CPF=?");
-            ps.setString(1, cpf);
-            
-            ResultSet rs = ps.executeQuery();
-            
-            if (rs.next()){
-                LocalDate dt = LocalDate.parse(rs.getString("DataNascimento"));
-                p = new Paciente(rs.getString("CPF"),rs.getString("Nome"),dt);
-            }
-        }catch(SQLException ex){
-            System.out.println(ex.toString());
+    Paciente p = null;
+    PreparedStatement ps = null;
+
+    try{
+        ps = conn.prepareStatement("SELECT * FROM tbPaciente WHERE CPF=?");
+        ps.setString(1, cpf);
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()){
+            String data = rs.getString("dataNascimento");
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyy");
+            LocalDate dt = LocalDate.parse(data, fmt);
+
+            p = new Paciente(rs.getString("cpf"), rs.getString("nome"), dt);
+
+            p.setEndereco(rs.getString("endereco"));
+            p.setTelefone(rs.getString("telefone"));
+            p.setAltura(rs.getDouble("altura"));
+            p.setPeso(rs.getDouble("peso"));
         }
-        return p;
+    }catch(SQLException ex){
+        System.out.println(ex.toString());
     }
+    return p;
+}
+
     
     public void excluir(Paciente paciente){
         PreparedStatement ps = null;

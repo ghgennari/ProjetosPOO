@@ -24,6 +24,14 @@ public class Pessoa {
         this.telefone = telefone;
     }
 
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
     public String getCpf() {
         return cpf;
     }

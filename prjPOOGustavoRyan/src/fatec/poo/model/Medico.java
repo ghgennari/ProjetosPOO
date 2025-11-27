@@ -26,6 +26,14 @@ public class Medico extends Pessoa {
     public String getEspecialidade() {
         return especialidade;
     }
+
+    public void setCrm(String crm) {
+        this.crm = crm;
+    }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
     
     public void addConsultas(Consulta c){
         consultas.add(c);

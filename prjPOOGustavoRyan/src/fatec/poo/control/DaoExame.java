@@ -22,7 +22,7 @@ public class DaoExame {
     public void inserir(Exame exame){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("INSERT INTO tbExame(Codigo, Descricao, Data, Hora, Valor, CodConsulta) VALUES (?,?,?,?,?,?");
+            ps = conn.prepareStatement("INSERT INTO tbExame(Codigo, Descricao, Data, Hora, Valor, CodConsulta) VALUES (?,?,?,?,?,?)");
 
             ps.setInt(1, exame.getCodigo());
             ps.setString(2, exame.getDescricao());

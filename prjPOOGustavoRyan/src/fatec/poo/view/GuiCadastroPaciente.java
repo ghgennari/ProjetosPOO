@@ -8,12 +8,14 @@ package fatec.poo.view;
 import fatec.poo.control.DaoPaciente;
 import fatec.poo.control.PreparaConexao;
 import fatec.poo.model.Paciente;
+import fatec.poo.model.Pessoa;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author nerdr
+ * @author Gustavo
  */
 public class GuiCadastroPaciente extends javax.swing.JFrame {
 
@@ -56,6 +58,9 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Paciente");
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -110,6 +115,11 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.setEnabled(false);
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         txtEndereco.setEnabled(false);
 
@@ -235,16 +245,16 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
         objPac = null;
-        objPac = daoPaciente.consultar(txtCPF.getText());
+        objPac = daoPaciente.consultar(txtCPF.getText().replaceAll("[^0-9]", ""));
         
         if(objPac == null){//Caso ele nao encontre o paciente
             txtCPF.setEnabled(false);
             txtNome.setEnabled(true);
             txtEndereco.setEnabled(true);
-            txtEndereco.setEnabled(true);
-            txtEndereco.setEnabled(true);
-            txtEndereco.setEnabled(true);
-            txtEndereco.setEnabled(true);
+            txtTelefone.setEnabled(true);
+            txtDataNascimento.setEnabled(true);
+            txtAltura.setEnabled(true);
+            txtPeso.setEnabled(true);
             txtNome.requestFocus();
             
             btnConsultar.setEnabled(false);
@@ -252,13 +262,23 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
             btnAlterar.setEnabled(false);
             btnExcluir.setEnabled(false);
         }
-        else{
+        else{ //encontrou paciente
             txtNome.setText(objPac.getNome());
             txtEndereco.setText(objPac.getEndereco());
             txtTelefone.setText(objPac.getTelefone());
             txtDataNascimento.setText(objPac.getDataNascimento());
             txtAltura.setText(String.valueOf(objPac.getAltura()));
             txtPeso.setText(String.valueOf(objPac.getPeso()));
+            
+            txtCPF.setEnabled(false);
+            txtNome.setEnabled(true);
+            txtEndereco.setEnabled(true);
+            txtTelefone.setEnabled(true);
+            txtDataNascimento.setEnabled(true);
+            txtAltura.setEnabled(true);
+            txtPeso.setEnabled(true);
+            
+            txtNome.requestFocus();
             
             btnConsultar.setEnabled(false);
             btnInserir.setEnabled(false);
@@ -275,15 +295,36 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        objPac = new Paciente(txtCPF.getText(), txtNome.getText(), LocalDate.parse(txtDataNascimento.getText(),format));
-        daoPaciente.inserir(objPac);
+        objPac = new Paciente(txtCPF.getText().replaceAll("[^0-9]",""), 
+                txtNome.getText(), 
+                LocalDate.parse(txtDataNascimento.getText(),format));
+        objPac.setEndereco(txtEndereco.getText());
+        objPac.setTelefone(txtTelefone.getText());
+        objPac.setAltura(Double.parseDouble(txtAltura.getText().replace(",", ".")));
+        objPac.setPeso(Double.parseDouble(txtPeso.getText().replace(",",".")));
+        if(!Pessoa.validarCPF(txtCPF.getText())){
+            JOptionPane.showMessageDialog(null, "CPF Inválido!");
+        }else{
+            daoPaciente.inserir(objPac);
+        }
         
+        txtNome.setText(null);
+        txtCPF.setText(null);
+        txtDataNascimento.setText(null);
         txtAltura.setText(null);
         txtPeso.setText(null);
         txtEndereco.setText(null);
         txtTelefone.setText(null);
-        btnInserir.setEnabled(false);
         
+        txtCPF.setEnabled(true);
+        txtNome.setEnabled(false);
+        txtEndereco.setEnabled(false);
+        txtTelefone.setEnabled(false);
+        txtDataNascimento.setEnabled(false);
+        txtAltura.setEnabled(false);
+        txtPeso.setEnabled(false);
+        
+        btnInserir.setEnabled(false);
         btnConsultar.setEnabled(true);
         btnAlterar.setEnabled(false);
         btnExcluir.setEnabled(false);
@@ -292,14 +333,82 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        prepCon = new PreparaConexao("",""); //Usuário e senha                            
        prepCon.setDriver("net.ucanaccess.jdbc.UcanaccessDriver");
-       prepCon.setConnectionString("jdbc:ucanaccess://G:\\Meu Drive\\Faculdade\\4º Semestre\\Programação Orientada a Objetos\\ProjetosPOO\\prjPOOGustavoRyan\\src\\fatec\\poo\\basedados\\dbClinica.accdb" );
+                                                    
+       prepCon.setConnectionString("jdbc:ucanaccess://G:\\Meu Drive\\Faculdade\\4º Semestre\\Programação Orientada a Objetos\\ProjetosPOO\\prjPOOGustavoRyan\\src\\fatec\\poo\\basedados\\BDClinica.accdb" );
        daoPaciente = new DaoPaciente(prepCon.abrirConexao());
+       txtCPF.requestFocus();
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")==0){
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            
+            objPac.setNome(txtNome.getText());
+            objPac.setDataNascimento(LocalDate.parse(txtDataNascimento.getText(), format));
+            objPac.setEndereco(txtEndereco.getText());
+            objPac.setTelefone(txtTelefone.getText());
+            objPac.setAltura(Double.parseDouble(txtAltura.getText()));
+            objPac.setPeso(Double.parseDouble(txtPeso.getText()));
+            
+            daoPaciente.alterar(objPac);
+        }
         
+        txtCPF.setText(null);
+        txtNome.setText(null);
+        txtEndereco.setText(null);
+        txtTelefone.setText(null);
+        txtDataNascimento.setText(null);
+        txtAltura.setText(null);
+        txtPeso.setText(null);
+        
+        txtCPF.setEnabled(true);
+        txtNome.setEnabled(false);
+        txtEndereco.setEnabled(false);
+        txtTelefone.setEnabled(false);
+        txtDataNascimento.setEnabled(false);
+        txtAltura.setEnabled(false);
+        txtPeso.setEnabled(false);
+        txtCPF.requestFocus();
+        
+        btnConsultar.setEnabled(true);
+        btnInserir.setEnabled(false);
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
     }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        prepCon.fecharConexao();
+    }//GEN-LAST:event_formWindowClosed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "Confirma a exclusão?")==0){
+            daoPaciente.excluir(objPac);
+        }
+        txtCPF.setText(null);
+        txtNome.setText(null);
+        txtEndereco.setText(null);
+        txtTelefone.setText(null);
+        txtDataNascimento.setText(null);
+        txtAltura.setText(null);
+        txtPeso.setText(null);
+        
+        txtCPF.setEnabled(true);
+        txtNome.setEnabled(false);
+        txtEndereco.setEnabled(false);
+        txtTelefone.setEnabled(false);
+        txtDataNascimento.setEnabled(false);
+        txtAltura.setEnabled(false);
+        txtPeso.setEnabled(false);
+        txtCPF.requestFocus();
+        
+        btnConsultar.setEnabled(true);
+        btnInserir.setEnabled(false);
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
