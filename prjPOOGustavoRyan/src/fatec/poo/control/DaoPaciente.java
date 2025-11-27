@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 /**
  *
@@ -61,7 +62,7 @@ public class DaoPaciente {
     PreparedStatement ps = null;
 
     try{
-        ps = conn.prepareStatement("SELECT * FROM tbPaciente WHERE CPF=?");
+        ps = conn.prepareStatement("SELECT * FROM tbPaciente WHERE cpf=?");
         ps.setString(1, cpf);
 
         ResultSet rs = ps.executeQuery();
@@ -94,6 +95,32 @@ public class DaoPaciente {
         }catch(SQLException ex){
             System.out.println(ex.toString());
         }
+    }
+    
+    public ArrayList<Paciente> consultarPaciente(){
+        ArrayList<Paciente> pacientes = new ArrayList();
+        
+        PreparedStatement ps = null;
+        try{
+            ps = conn.prepareStatement("SELECT * FROM tbPaciente order by nome");
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Paciente p = new Paciente(rs.getString("cpf"),rs.getString("nome"),
+                        LocalDate.parse(rs.getString("dataNascimento")));
+                p.setEndereco(rs.getString("endereco"));
+                p.setTelefone(rs.getString("telefone"));
+                p.setAltura(rs.getDouble("altura"));
+                p.setPeso(rs.getDouble("peso"));
+                
+                pacientes.add(p);
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.toString());
+        }
+        
+        return pacientes;
     }
     
 }

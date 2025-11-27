@@ -323,6 +323,7 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
         txtDataNascimento.setEnabled(false);
         txtAltura.setEnabled(false);
         txtPeso.setEnabled(false);
+        txtCPF.requestFocus();
         
         btnInserir.setEnabled(false);
         btnConsultar.setEnabled(true);

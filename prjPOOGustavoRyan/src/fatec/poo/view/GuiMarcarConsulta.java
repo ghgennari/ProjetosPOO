@@ -73,6 +73,11 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
 
         btnCpfMedico.setText("...");
         btnCpfMedico.setEnabled(false);
+        btnCpfMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCpfMedicoActionPerformed(evt);
+            }
+        });
 
         btnCpfPaciente.setText("...");
         btnCpfPaciente.setEnabled(false);
@@ -115,6 +120,11 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnInserir.setText("Inserir");
         btnInserir.setEnabled(false);
+        btnInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInserirActionPerformed(evt);
+            }
+        });
 
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
@@ -231,6 +241,8 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -243,6 +255,18 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
        prepCon.setConnectionString("jdbc:ucanaccess://G:\\Meu Drive\\Faculdade\\4º Semestre\\Programação Orientada a Objetos\\ProjetosPOO\\prjPOOGustavoRyan\\src\\fatec\\poo\\basedados\\dbClinica.accdb" );
        daoConsulta = new DaoConsulta(prepCon.abrirConexao());
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
+        // TODO add your handling code here:
+        objCon = new Consulta(Integer.parseInt(txtCodigo.getText()),
+                txtData.getText());
+        
+    }//GEN-LAST:event_btnInserirActionPerformed
+
+    private void btnCpfMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCpfMedicoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnCpfMedicoActionPerformed
 
    
 
