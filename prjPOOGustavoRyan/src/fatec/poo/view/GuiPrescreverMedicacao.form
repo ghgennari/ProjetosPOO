@@ -53,11 +53,11 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnMedicoPrescreverMedicacao" min="-2" max="-2" attributes="0"/>
+              <Component id="btnMedico" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txtMedico" min="-2" pref="214" max="-2" attributes="0"/>
+              <Component id="lblMedico" min="-2" pref="214" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
@@ -87,9 +87,9 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtCodigoConsulta" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnMedicoPrescreverMedicacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMedico" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtMedico" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblMedico" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -145,18 +145,21 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnMedicoPrescreverMedicacao">
+    <Component class="javax.swing.JButton" name="btnMedico">
       <Properties>
         <Property name="text" type="java.lang.String" value="..."/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMedicoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="M&#xe9;dico"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMedico">
+    <Component class="javax.swing.JTextField" name="lblMedico">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -195,6 +198,9 @@
         <Property name="text" type="java.lang.String" value="Inserir"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInserirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAlterar">
       <Properties>
@@ -204,6 +210,9 @@
         <Property name="text" type="java.lang.String" value="Alterar"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnExcluir">
       <Properties>
@@ -213,6 +222,9 @@
         <Property name="text" type="java.lang.String" value="Excluir"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcluirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSair">
       <Properties>
