@@ -30,6 +30,10 @@ public class Exame {
         this.valor = valor;
     }
 
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    
     public int getCodigo() {
         return codigo;
     }

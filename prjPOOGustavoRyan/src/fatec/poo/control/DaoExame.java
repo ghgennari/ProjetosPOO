@@ -1,6 +1,7 @@
 
 package fatec.poo.control;
 
+import fatec.poo.model.Consulta;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,7 +65,12 @@ public class DaoExame {
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()){
-                e = new Exame(rs.getInt(codigo),rs.getString("descricao"));
+                e = new Exame(rs.getInt("codigo"),rs.getString("descricao"));
+                e.setData(rs.getString("data"));
+                e.setHorario(rs.getString("horario"));
+                e.setValor(rs.getDouble("valor"));
+                Consulta c = new DaoConsulta(conn).consultar(Integer.parseInt(rs.getString("codConsulta")));
+                e.setConsulta(c);
             }
         }catch(SQLException ex){
             System.out.println(ex.toString());

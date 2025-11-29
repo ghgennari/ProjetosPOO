@@ -246,7 +246,7 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!Pessoa.validarCPF(txtCPF.getText())){
             JOptionPane.showMessageDialog(null, "CPF Inválido!");
-            
+            return;
         }else{
             paciente = null;
             paciente = daoPaciente.consultar(txtCPF.getText().replaceAll("[^0-9]", ""));

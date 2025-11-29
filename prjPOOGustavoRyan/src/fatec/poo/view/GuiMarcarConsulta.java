@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author nerdr
+ * @author Gustavo
  */
 public class GuiMarcarConsulta extends javax.swing.JFrame {
 

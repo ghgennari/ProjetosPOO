@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author nerdr
+ * @author Ryan e Gustavo
  */
 public class GuiCadastroMedico extends javax.swing.JFrame {
 
@@ -221,6 +221,7 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         if(!Pessoa.validarCPF(txtCPF.getText())){
             JOptionPane.showMessageDialog(null, "CPF Inválido!");
+            return;
         }else{
             objMed = null;
             objMed = daoMedico.consultar(txtCPF.getText().replaceAll("[^0-9]",""));
