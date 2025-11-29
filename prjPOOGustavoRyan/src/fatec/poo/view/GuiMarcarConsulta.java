@@ -139,10 +139,20 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
         btnAlterar.setEnabled(false);
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.setEnabled(false);
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
@@ -251,7 +261,7 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
-        consulta = null;s
+        consulta = null;
         consulta = daoConsulta.consultar(Integer.parseInt(txtCodigo.getText()));
         
         if(consulta == null){
@@ -260,12 +270,26 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
             txtCPFMedico.setEnabled(true);
             btnCpfMedico.setEnabled(true);
         }else{
-            txtCPFMedico.setText(consulta.getMedico().getCpf());
-            lblCPFMedico.setText(consulta.getMedico().getNome());
-            txtCPFPaciente.setText(paciente.getCpf());
-            lblCPFPaciente.setText(paciente.getNome());
             txtData.setText(consulta.getData());
             txtValor.setText(String.valueOf(consulta.getValor()));
+            txtCPFMedico.setText(consulta.getMedico().getCpf());
+            lblCPFMedico.setText(consulta.getMedico().getNome());
+            txtCPFPaciente.setText(daoConsulta.consultaPaciente(Integer.parseInt(txtCodigo.getText())).getCpf());
+            lblCPFPaciente.setText(daoConsulta.consultaPaciente(Integer.parseInt(txtCodigo.getText())).getNome());
+            
+            btnConsultar.setEnabled(false);
+            btnInserir.setEnabled(false);
+            btnAlterar.setEnabled(true);
+            btnExcluir.setEnabled(true);
+            txtCodigo.setEnabled(false);
+            txtCPFMedico.setEnabled(false);
+            txtCPFPaciente.setEnabled(false);
+            btnCpfMedico.setEnabled(false);
+            btnCpfPaciente.setEnabled(false);
+            txtData.setEnabled(true);
+            txtValor.setEnabled(true);
+            
+            txtData.requestFocus();
         }
         
     }//GEN-LAST:event_btnConsultarActionPerformed
@@ -288,6 +312,29 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
         // TODO add your handling code here:
         consulta = new Consulta(Integer.parseInt(txtCodigo.getText()),
                 txtData.getText());
+        
+        consulta.setValor(Double.parseDouble(txtValor.getText()));
+        consulta.setMedico(medico);
+        paciente.addConsulta(consulta);
+        daoConsulta.inserir(consulta,paciente);
+        
+        txtCPFMedico.setText(null);
+        txtCPFPaciente.setText(null);
+        txtCodigo.setText(null);
+        txtData.setText(null);
+        txtValor.setText(null);
+        lblCPFMedico.setText(null);
+        lblCPFPaciente.setText(null);
+        
+        btnConsultar.setEnabled(true);
+        btnInserir.setEnabled(false);
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+        btnCpfMedico.setEnabled(false);
+        btnCpfPaciente.setEnabled(false);
+        txtData.setEnabled(false);
+        txtValor.setEnabled(false);
+        txtCodigo.setEnabled(true);
         
     }//GEN-LAST:event_btnInserirActionPerformed
 
@@ -321,6 +368,56 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
             btnInserir.setEnabled(true);
         }
     }//GEN-LAST:event_btnCpfPacienteActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")==0){
+            consulta.setValor(Double.parseDouble(txtValor.getText()));
+            consulta.setData(txtData.getText());
+            daoConsulta.alterar(consulta);
+        }
+        txtCPFMedico.setText(null);
+        txtCPFPaciente.setText(null);
+        txtCodigo.setText(null);
+        txtData.setText(null);
+        txtValor.setText(null);
+        lblCPFMedico.setText(null);
+        lblCPFPaciente.setText(null);
+        
+        btnConsultar.setEnabled(true);
+        btnInserir.setEnabled(false);
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+        btnCpfMedico.setEnabled(false);
+        btnCpfPaciente.setEnabled(false);
+        txtData.setEnabled(false);
+        txtValor.setEnabled(false);
+        txtCodigo.setEnabled(true);
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "Confirma a exclusão?")==0){
+            daoConsulta.excluir(consulta);
+        }
+        txtCPFMedico.setText(null);
+        txtCPFPaciente.setText(null);
+        txtCodigo.setText(null);
+        txtData.setText(null);
+        txtValor.setText(null);
+        lblCPFMedico.setText(null);
+        lblCPFPaciente.setText(null);
+        
+        btnConsultar.setEnabled(true);
+        btnInserir.setEnabled(false);
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+        btnCpfMedico.setEnabled(false);
+        btnCpfPaciente.setEnabled(false);
+        txtData.setEnabled(false);
+        txtValor.setEnabled(false);
+        txtCodigo.setEnabled(true);
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
    
 
