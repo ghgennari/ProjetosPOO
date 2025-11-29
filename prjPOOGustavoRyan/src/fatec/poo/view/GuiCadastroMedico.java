@@ -219,8 +219,12 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        objMed = null;
-        objMed = daoMedico.consultar(txtCPF.getText().replaceAll("[^0-9]",""));
+        if(!Pessoa.validarCPF(txtCPF.getText())){
+            JOptionPane.showMessageDialog(null, "CPF Inválido!");
+        }else{
+            objMed = null;
+            objMed = daoMedico.consultar(txtCPF.getText().replaceAll("[^0-9]",""));
+        }
         
         if(objMed == null){//Nao encontra
             txtCPF.setEnabled(false);

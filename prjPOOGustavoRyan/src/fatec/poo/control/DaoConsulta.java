@@ -23,7 +23,7 @@ public class DaoConsulta {
     public void inserir(Consulta consulta, Paciente paciente){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("INSERT INTO tbConsulta(Codigo,Data,Valor,CPFMedico,CPFPaciente) VALUES (?,?,?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO tbConsulta(codigo,data,valor,cpfMedico,cpfPaciente) VALUES (?,?,?,?,?)");
             ps.setInt(1, consulta.getCodigo());
             ps.setString(2, consulta.getData());
             ps.setDouble(3, consulta.getValor());
@@ -38,7 +38,7 @@ public class DaoConsulta {
     public void alterar(Consulta consulta){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("UPDATE tbConsulta SET Data=?,Valor=? WHERE Codigo=?");
+            ps = conn.prepareStatement("UPDATE tbConsulta SET data=?,valor=? WHERE codigo=?");
             ps.setString(1,consulta.getData());
             ps.setDouble(2, consulta.getValor());
             ps.setInt(3, consulta.getCodigo());
@@ -52,12 +52,12 @@ public class DaoConsulta {
         Consulta c = null;
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("SELECT * FROM tbConsulta WHERE Codigo = ?");
+            ps = conn.prepareStatement("SELECT * FROM tbConsulta WHERE codigo = ?");
             ps.setInt(1,codigo);
             ResultSet rs = ps.executeQuery();
             
             if(rs.next()){
-                c = new Consulta(rs.getInt("Codigo"),rs.getString("Data"));
+                c = new Consulta(rs.getInt("codigo"),rs.getString("data"));
             }
         }catch(SQLException ex){
             System.out.println(ex.toString());
@@ -68,7 +68,7 @@ public class DaoConsulta {
     public void excluir(Consulta consulta){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("DELETE FROM tbConsulta WHERE Codigo = ?");
+            ps = conn.prepareStatement("DELETE FROM tbConsulta WHERE codigo = ?");
             ps.setInt(1,consulta.getCodigo());
             ps.execute();
         }catch(SQLException ex){

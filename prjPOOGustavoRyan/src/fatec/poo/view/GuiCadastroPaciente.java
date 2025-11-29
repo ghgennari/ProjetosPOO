@@ -244,9 +244,14 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
-        objPac = null;
-        objPac = daoPaciente.consultar(txtCPF.getText().replaceAll("[^0-9]", ""));
-        
+        if(!Pessoa.validarCPF(txtCPF.getText())){
+            JOptionPane.showMessageDialog(null, "CPF Inválido!");
+            
+        }else{
+            objPac = null;
+            objPac = daoPaciente.consultar(txtCPF.getText().replaceAll("[^0-9]", ""));
+        }
+                
         if(objPac == null){//Caso ele nao encontre o paciente
             txtCPF.setEnabled(false);
             txtNome.setEnabled(true);
@@ -302,11 +307,7 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
         objPac.setTelefone(txtTelefone.getText());
         objPac.setAltura(Double.parseDouble(txtAltura.getText().replace(",", ".")));
         objPac.setPeso(Double.parseDouble(txtPeso.getText().replace(",",".")));
-        if(!Pessoa.validarCPF(txtCPF.getText())){
-            JOptionPane.showMessageDialog(null, "CPF Inválido!");
-        }else{
-            daoPaciente.inserir(objPac);
-        }
+        daoPaciente.inserir(objPac);
         
         txtNome.setText(null);
         txtCPF.setText(null);

@@ -6,8 +6,13 @@
 package fatec.poo.view;
 
 import fatec.poo.control.DaoConsulta;
+import fatec.poo.control.DaoMedico;
+import fatec.poo.control.DaoPaciente;
 import fatec.poo.control.PreparaConexao;
 import fatec.poo.model.Consulta;
+import fatec.poo.model.Medico;
+import fatec.poo.model.Paciente;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,8 +45,8 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
         txtValor = new javax.swing.JTextField();
         btnCpfMedico = new javax.swing.JButton();
         btnCpfPaciente = new javax.swing.JButton();
-        txtMedico = new javax.swing.JTextField();
-        txtPaciente = new javax.swing.JTextField();
+        lblCPFMedico = new javax.swing.JTextField();
+        lblCPFPaciente = new javax.swing.JTextField();
         txtCPFMedico = new javax.swing.JFormattedTextField();
         txtCPFPaciente = new javax.swing.JFormattedTextField();
         txtData = new javax.swing.JFormattedTextField();
@@ -81,12 +86,17 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
 
         btnCpfPaciente.setText("...");
         btnCpfPaciente.setEnabled(false);
+        btnCpfPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCpfPacienteActionPerformed(evt);
+            }
+        });
 
-        txtMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        txtMedico.setEnabled(false);
+        lblCPFMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        lblCPFMedico.setEnabled(false);
 
-        txtPaciente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        txtPaciente.setEnabled(false);
+        lblCPFPaciente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        lblCPFPaciente.setEnabled(false);
 
         try {
             txtCPFMedico.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -178,11 +188,11 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnCpfMedico)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblCPFMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnCpfPaciente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblCPFPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addComponent(btnConsultar)
@@ -210,13 +220,13 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(btnCpfMedico)
-                    .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCPFMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCPFMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(btnCpfPaciente)
-                    .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCPFPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCPFPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -241,7 +251,22 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
+        consulta = null;s
+        consulta = daoConsulta.consultar(Integer.parseInt(txtCodigo.getText()));
         
+        if(consulta == null){
+            txtCodigo.setEnabled(false);
+            btnConsultar.setEnabled(false);
+            txtCPFMedico.setEnabled(true);
+            btnCpfMedico.setEnabled(true);
+        }else{
+            txtCPFMedico.setText(consulta.getMedico().getCpf());
+            lblCPFMedico.setText(consulta.getMedico().getNome());
+            txtCPFPaciente.setText(paciente.getCpf());
+            lblCPFPaciente.setText(paciente.getNome());
+            txtData.setText(consulta.getData());
+            txtValor.setText(String.valueOf(consulta.getValor()));
+        }
         
     }//GEN-LAST:event_btnConsultarActionPerformed
 
@@ -252,21 +277,50 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        prepCon = new PreparaConexao("",""); //Usuário e senha                            
        prepCon.setDriver("net.ucanaccess.jdbc.UcanaccessDriver");
-       prepCon.setConnectionString("jdbc:ucanaccess://G:\\Meu Drive\\Faculdade\\4º Semestre\\Programação Orientada a Objetos\\ProjetosPOO\\prjPOOGustavoRyan\\src\\fatec\\poo\\basedados\\dbClinica.accdb" );
+       prepCon.setConnectionString("jdbc:ucanaccess://G:\\Meu Drive\\Faculdade\\4º Semestre\\Programação Orientada a Objetos\\ProjetosPOO\\prjPOOGustavoRyan\\src\\fatec\\poo\\basedados\\BDClinica.accdb" );
        daoConsulta = new DaoConsulta(prepCon.abrirConexao());
+       daoPaciente = new DaoPaciente(prepCon.abrirConexao());
+       daoMedico = new DaoMedico(prepCon.abrirConexao());
+       txtCodigo.requestFocus();
     }//GEN-LAST:event_formWindowOpened
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         // TODO add your handling code here:
-        objCon = new Consulta(Integer.parseInt(txtCodigo.getText()),
+        consulta = new Consulta(Integer.parseInt(txtCodigo.getText()),
                 txtData.getText());
         
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void btnCpfMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCpfMedicoActionPerformed
         // TODO add your handling code here:
-        
+        medico = daoMedico.consultar(txtCPFMedico.getText().replaceAll("[^0-9]", ""));
+        if (medico == null){
+            JOptionPane.showMessageDialog(null, "Medico não cadastrado.");
+            txtCPFMedico.requestFocus();
+        }else{
+            lblCPFMedico.setText(medico.getNome());
+            txtCPFMedico.setEnabled(false);
+            btnCpfMedico.setEnabled(false);
+            txtCPFPaciente.setEnabled(true);
+            btnCpfPaciente.setEnabled(true);
+        }
     }//GEN-LAST:event_btnCpfMedicoActionPerformed
+
+    private void btnCpfPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCpfPacienteActionPerformed
+        // TODO add your handling code here:
+        paciente = daoPaciente.consultar(txtCPFPaciente.getText().replaceAll("[^0-9]", ""));
+        if (paciente == null){
+            JOptionPane.showMessageDialog(null, "Paciente não cadastrado.");
+            txtCPFPaciente.requestFocus();
+        }else{
+            lblCPFPaciente.setText(paciente.getNome());
+            btnCpfPaciente.setEnabled(false);
+            txtCPFPaciente.setEnabled(false);
+            txtData.setEnabled(true);
+            txtValor.setEnabled(true);
+            btnInserir.setEnabled(true);
+        }
+    }//GEN-LAST:event_btnCpfPacienteActionPerformed
 
    
 
@@ -283,15 +337,19 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField lblCPFMedico;
+    private javax.swing.JTextField lblCPFPaciente;
     private javax.swing.JFormattedTextField txtCPFMedico;
     private javax.swing.JFormattedTextField txtCPFPaciente;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JFormattedTextField txtData;
-    private javax.swing.JTextField txtMedico;
-    private javax.swing.JTextField txtPaciente;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
-    private DaoConsulta daoConsulta=null;
-    private Consulta objCon=null;
-    private PreparaConexao prepCon=null;
+    private PreparaConexao prepCon;
+    private Consulta consulta;
+    private Medico medico;
+    private Paciente paciente;
+    private DaoConsulta daoConsulta;
+    private DaoMedico daoMedico;
+    private DaoPaciente daoPaciente;
 }
