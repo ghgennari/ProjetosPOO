@@ -26,6 +26,10 @@ public class Consulta {
         this.valor = valor;
     }
 
+    public void setData(String data) {
+        this.data = data;
+    }
+    
     public int getCodigo() {
         return codigo;
     }

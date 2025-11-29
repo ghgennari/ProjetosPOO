@@ -23,7 +23,7 @@ public class DaoMedicacao {
     public void inserir(Medicacao medicacao, Consulta consulta){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("INSERT INTO tbMedicacao(Nome,Dosagem,qtdeDias,CodConsulta) VALUES (?,?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO tbMedicacao(nome,dosagem,qtdeDias,codConsulta) VALUES (?,?,?,?)");
             ps.setString(1, medicacao.getNome());
             ps.setString(2, medicacao.getDosagem());
             ps.setInt(3, medicacao.getQtdeDias());
@@ -38,7 +38,7 @@ public class DaoMedicacao {
     public void alterar(Medicacao medicacao){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("UPDATE tbMedicacao SET Dosagem = ?,qtdeDias = ? WHERE Nome = ?");
+            ps = conn.prepareStatement("UPDATE tbMedicacao SET dosagem = ?,qtdeDias = ? WHERE nome = ?");
             ps.setString(1, medicacao.getDosagem());
             ps.setInt(2, medicacao.getQtdeDias());
             ps.setString(3, medicacao.getNome());
@@ -55,14 +55,14 @@ public class DaoMedicacao {
         PreparedStatement ps = null;
 
         try{
-            ps = conn.prepareStatement("SELECT * FROM tbMedicacao WHERE Nome=?");
+            ps = conn.prepareStatement("SELECT * FROM tbMedicacao WHERE nome=?");
             ps.setString(1, nome);
 
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()){
                 m = new Medicacao(rs.getString(nome));
-                m.setDosagem(rs.getString("Dosagem"));
+                m.setDosagem(rs.getString("dosagem"));
                 m.setQtdeDias(rs.getInt("qtdeDias"));
             }
         }catch(SQLException ex){
@@ -74,7 +74,7 @@ public class DaoMedicacao {
     public void excluir(Medicacao medicacao){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("DELETE FROM tbMedicacao WHERE Nome=?");
+            ps = conn.prepareStatement("DELETE FROM tbMedicacao WHERE nome=?");
             ps.setString(1, medicacao.getNome());
             ps.execute();
         }catch(SQLException ex){

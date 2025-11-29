@@ -22,7 +22,7 @@ public class DaoExame {
     public void inserir(Exame exame){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("INSERT INTO tbExame(Codigo, Descricao, Data, Hora, Valor, CodConsulta) VALUES (?,?,?,?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO tbExame(codigo, descricao, data, horario, valor, codConsulta) VALUES (?,?,?,?,?,?)");
 
             ps.setInt(1, exame.getCodigo());
             ps.setString(2, exame.getDescricao());
@@ -40,7 +40,7 @@ public class DaoExame {
     public void alterar(Exame exame){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("UPDATE tbExame SET Descricao=?, Data=?, Hora=?, Valor=? WHERE Codigo = ?");
+            ps = conn.prepareStatement("UPDATE tbExame SET descricao=?, data=?, horario=?, valor=? WHERE codigo = ?");
             ps.setString(1, exame.getDescricao());
             ps.setString(2, exame.getData());
             ps.setString(3, exame.getHorario());
@@ -58,13 +58,13 @@ public class DaoExame {
         PreparedStatement ps = null;
 
         try{
-            ps=conn.prepareStatement("SELECT * FROM tbExame WHERE Codigo = ?");
+            ps=conn.prepareStatement("SELECT * FROM tbExame WHERE codigo = ?");
             ps.setInt(1,codigo);
 
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()){
-                e = new Exame(rs.getInt(codigo),rs.getString("Descricao"));
+                e = new Exame(rs.getInt(codigo),rs.getString("descricao"));
             }
         }catch(SQLException ex){
             System.out.println(ex.toString());
@@ -75,7 +75,7 @@ public class DaoExame {
     public void excluir(Exame exame){
         PreparedStatement ps = null;
         try{
-            ps = conn.prepareStatement("DELETE FROM tbExame WHERE Codigo=?");
+            ps = conn.prepareStatement("DELETE FROM tbExame WHERE codigo=?");
             ps.setInt(1,exame.getCodigo());
             ps.execute();
         }catch(SQLException ex){

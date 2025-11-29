@@ -248,11 +248,11 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "CPF Inválido!");
             
         }else{
-            objPac = null;
-            objPac = daoPaciente.consultar(txtCPF.getText().replaceAll("[^0-9]", ""));
+            paciente = null;
+            paciente = daoPaciente.consultar(txtCPF.getText().replaceAll("[^0-9]", ""));
         }
                 
-        if(objPac == null){//Caso ele nao encontre o paciente
+        if(paciente == null){//Caso ele nao encontre o paciente
             txtCPF.setEnabled(false);
             txtNome.setEnabled(true);
             txtEndereco.setEnabled(true);
@@ -268,12 +268,12 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
             btnExcluir.setEnabled(false);
         }
         else{ //encontrou paciente
-            txtNome.setText(objPac.getNome());
-            txtEndereco.setText(objPac.getEndereco());
-            txtTelefone.setText(objPac.getTelefone());
-            txtDataNascimento.setText(objPac.getDataNascimento());
-            txtAltura.setText(String.valueOf(objPac.getAltura()));
-            txtPeso.setText(String.valueOf(objPac.getPeso()));
+            txtNome.setText(paciente.getNome());
+            txtEndereco.setText(paciente.getEndereco());
+            txtTelefone.setText(paciente.getTelefone());
+            txtDataNascimento.setText(paciente.getDataNascimento());
+            txtAltura.setText(String.valueOf(paciente.getAltura()));
+            txtPeso.setText(String.valueOf(paciente.getPeso()));
             
             txtCPF.setEnabled(false);
             txtNome.setEnabled(true);
@@ -300,14 +300,14 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        objPac = new Paciente(txtCPF.getText().replaceAll("[^0-9]",""), 
+        paciente = new Paciente(txtCPF.getText().replaceAll("[^0-9]",""), 
                 txtNome.getText(), 
                 LocalDate.parse(txtDataNascimento.getText(),format));
-        objPac.setEndereco(txtEndereco.getText());
-        objPac.setTelefone(txtTelefone.getText());
-        objPac.setAltura(Double.parseDouble(txtAltura.getText().replace(",", ".")));
-        objPac.setPeso(Double.parseDouble(txtPeso.getText().replace(",",".")));
-        daoPaciente.inserir(objPac);
+        paciente.setEndereco(txtEndereco.getText());
+        paciente.setTelefone(txtTelefone.getText());
+        paciente.setAltura(Double.parseDouble(txtAltura.getText().replace(",", ".")));
+        paciente.setPeso(Double.parseDouble(txtPeso.getText().replace(",",".")));
+        daoPaciente.inserir(paciente);
         
         txtNome.setText(null);
         txtCPF.setText(null);
@@ -346,14 +346,14 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")==0){
             DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             
-            objPac.setNome(txtNome.getText());
-            objPac.setDataNascimento(LocalDate.parse(txtDataNascimento.getText(), format));
-            objPac.setEndereco(txtEndereco.getText());
-            objPac.setTelefone(txtTelefone.getText());
-            objPac.setAltura(Double.parseDouble(txtAltura.getText()));
-            objPac.setPeso(Double.parseDouble(txtPeso.getText()));
+            paciente.setNome(txtNome.getText());
+            paciente.setDataNascimento(LocalDate.parse(txtDataNascimento.getText(), format));
+            paciente.setEndereco(txtEndereco.getText());
+            paciente.setTelefone(txtTelefone.getText());
+            paciente.setAltura(Double.parseDouble(txtAltura.getText()));
+            paciente.setPeso(Double.parseDouble(txtPeso.getText()));
             
-            daoPaciente.alterar(objPac);
+            daoPaciente.alterar(paciente);
         }
         
         txtCPF.setText(null);
@@ -387,7 +387,7 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(null, "Confirma a exclusão?")==0){
-            daoPaciente.excluir(objPac);
+            daoPaciente.excluir(paciente);
         }
         txtCPF.setText(null);
         txtNome.setText(null);
@@ -434,7 +434,7 @@ public class GuiCadastroPaciente extends javax.swing.JFrame {
     private javax.swing.JTextField txtPeso;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
-    private Paciente objPac=null;
+    private Paciente paciente=null;
     private PreparaConexao prepCon=null;
     private DaoPaciente daoPaciente=null;
 }
