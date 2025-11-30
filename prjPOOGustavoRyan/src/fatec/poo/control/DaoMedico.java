@@ -48,8 +48,8 @@ public class DaoMedico {
             ps.setString(1, medico.getNome());
             ps.setString(2, medico.getCrm());
             ps.setString(3, medico.getEspecialidade());
-            ps.setString(4, medico.getTelefone());
-            ps.setString(5, medico.getEndereco());
+            ps.setString(4, medico.getEndereco());
+            ps.setString(5, medico.getTelefone());
             ps.setString(6, medico.getCpf());
             
             ps.execute();
@@ -90,29 +90,5 @@ public class DaoMedico {
             System.out.println(ex.toString());
         }
         return (m);
-    }
-    
-    public ArrayList<Medico> consultarMedico(){
-        ArrayList<Medico> medicos = new ArrayList();
-        
-        PreparedStatement ps = null;
-        try{
-            ps = conn.prepareStatement("SELECT * FROM tbMedico order by nome");
-            
-            ResultSet rs = ps.executeQuery();
-            
-            while(rs.next()){
-                Medico med = new Medico(rs.getString("cpf"),
-                                       rs.getString("nome"),
-                                       rs.getString("crm"),
-                                       rs.getString("especialidade"));
-                med.setEndereco(rs.getString("endereco"));
-                med.setTelefone(rs.getString("telefone"));
-                medicos.add(med);
-            }
-        }catch(SQLException ex){
-            System.out.println(ex.toString());
-        }
-        return medicos;
     }
 }

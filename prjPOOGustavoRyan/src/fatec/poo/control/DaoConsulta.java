@@ -86,7 +86,7 @@ public class DaoConsulta {
         Paciente p = null;
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("SELECT cpfPaciente FROM tbConsulta WHERE Codigo = ?");
+            ps = conn.prepareStatement("SELECT cpfPaciente FROM tbConsulta WHERE codigo = ?");
             ps.setInt(1, codigo);
             ResultSet rs = ps.executeQuery();
             

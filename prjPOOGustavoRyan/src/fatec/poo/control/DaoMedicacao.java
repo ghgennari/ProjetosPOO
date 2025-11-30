@@ -61,9 +61,11 @@ public class DaoMedicacao {
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()){
-                m = new Medicacao(rs.getString(nome));
+                m = new Medicacao(rs.getString("nome"));
                 m.setDosagem(rs.getString("dosagem"));
                 m.setQtdeDias(rs.getInt("qtdeDias"));
+                Consulta c = new DaoConsulta(conn).consultar(rs.getInt("codConsulta"));
+                c.addMedicacao(m);
             }
         }catch(SQLException ex){
             System.out.println(ex.toString());
@@ -81,5 +83,23 @@ public class DaoMedicacao {
             System.out.println(ex.toString());
         }
     }
-
+    
+    public Consulta buscarConsulta(String nome){
+        Consulta c = null;
+        PreparedStatement ps = null;
+        try{
+            ps = conn.prepareStatement("SELECT codConsulta FROM tbMedicacao WHERE nome = ?");
+            ps.setString(1, nome);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                int cod = rs.getInt("codConsulta");
+                DaoConsulta dao = new DaoConsulta(conn);
+                c = dao.consultar(cod);
+            }
+            }catch(SQLException ex){
+                System.out.println(ex.toString());
+            }
+        return c;
+    }    
 }

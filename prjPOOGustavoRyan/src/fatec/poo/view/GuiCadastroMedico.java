@@ -301,6 +301,8 @@ public class GuiCadastroMedico extends javax.swing.JFrame {
         
         btnConsultar.setEnabled(true);
         btnInserir.setEnabled(false);
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
        
     }//GEN-LAST:event_btnInserirActionPerformed
 

@@ -281,6 +281,7 @@ public class GuiMarcarConsulta extends javax.swing.JFrame {
             btnInserir.setEnabled(false);
             btnAlterar.setEnabled(true);
             btnExcluir.setEnabled(true);
+            
             txtCodigo.setEnabled(false);
             txtCPFMedico.setEnabled(false);
             txtCPFPaciente.setEnabled(false);
